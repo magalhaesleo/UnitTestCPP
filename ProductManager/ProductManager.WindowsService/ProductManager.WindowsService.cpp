@@ -22,7 +22,7 @@
 #include <windows.h>
 #include "ServiceInstaller.h"
 #include "ServiceBase.h"
-#include "SampleService.h"
+#include "ProductService.h"
 #pragma endregion
 
 
@@ -31,7 +31,7 @@
 // 
 
 // Internal name of the service
-#define SERVICE_NAME             L"CppWindowsService"
+#define SERVICE_NAME             "CppWindowsService"
 
 // Displayed name of the service
 #define SERVICE_DISPLAY_NAME     L"CppWindowsService Sample Service"
@@ -94,7 +94,7 @@ int wmain(int argc, wchar_t *argv[])
 		wprintf(L" -install  to install the service.\n");
 		wprintf(L" -remove   to remove the service.\n");
 
-		CSampleService service(SERVICE_NAME);
+		CProductService service(SERVICE_NAME);
 		if (!CServiceBase::Run(service))
 		{
 			wprintf(L"Service failed to run w/err 0x%08lx\n", GetLastError());
