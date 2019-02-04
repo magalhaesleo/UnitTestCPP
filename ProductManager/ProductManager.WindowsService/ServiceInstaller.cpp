@@ -16,8 +16,6 @@
 
 #pragma region "Includes"
 #include "pch.h"
-#include <stdio.h>
-#include <windows.h>
 #include "ServiceInstaller.h"
 #pragma endregion
 

@@ -18,8 +18,6 @@
 
 #pragma region Includes
 #include "pch.h"
-#include <stdio.h>
-#include <windows.h>
 #include "ServiceInstaller.h"
 #include "ServiceBase.h"
 #include "ProductService.h"
