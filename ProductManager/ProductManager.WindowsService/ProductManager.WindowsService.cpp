@@ -31,22 +31,22 @@
 // 
 
 // Internal name of the service
-#define SERVICE_NAME             "CppWindowsService"
+wchar_t SERVICE_NAME[] = L"CppWindowsService";
 
 // Displayed name of the service
-#define SERVICE_DISPLAY_NAME     L"CppWindowsService Sample Service"
+wchar_t SERVICE_DISPLAY_NAME[] = L"CppWindowsService Sample Service";
 
 // Service start options.
-#define SERVICE_START_TYPE       SERVICE_DEMAND_START
+DWORD SERVICE_START_TYPE = SERVICE_DEMAND_START;
 
 // List of service dependencies - "dep1\0dep2\0\0"
-#define SERVICE_DEPENDENCIES     L""
+wchar_t SERVICE_DEPENDENCIES[]   =  L"";
 
 // The name of the account under which the service should run
-#define SERVICE_ACCOUNT          L"NT AUTHORITY\\LocalService"
+wchar_t SERVICE_ACCOUNT[] = L"NT AUTHORITY\\LocalService";
 
 // The password to the service account name
-#define SERVICE_PASSWORD         NULL
+wchar_t SERVICE_PASSWORD = NULL;
 
 
 //
@@ -78,7 +78,7 @@ int wmain(int argc, wchar_t *argv[])
 				SERVICE_START_TYPE,         // Service start type
 				SERVICE_DEPENDENCIES,       // Dependencies
 				SERVICE_ACCOUNT,            // Service running account
-				SERVICE_PASSWORD            // Password of the account
+				&SERVICE_PASSWORD            // Password of the account
 			);
 		}
 		else if (_wcsicmp(L"remove", argv[1] + 1) == 0)
@@ -90,6 +90,7 @@ int wmain(int argc, wchar_t *argv[])
 	}
 	else
 	{
+
 		wprintf(L"Parameters:\n");
 		wprintf(L" -install  to install the service.\n");
 		wprintf(L" -remove   to remove the service.\n");
